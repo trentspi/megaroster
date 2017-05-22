@@ -81,7 +81,7 @@ class Megaroster {
       .querySelector('button.move-up')
       .addEventListener('click', this.moveUp.bind(this, student))
     li
-      .querySelector('button-move-down')
+      .querySelector('button.move-down')
       .addEventListener('click', this.moveDown.bind(this, student))
   }
 
