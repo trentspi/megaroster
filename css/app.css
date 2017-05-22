@@ -36,3 +36,9 @@
   color: #eee;
   cursor: not-allowed;
 }
+
+.student:last-child button.move-down {
+  background-color: #ddd;
+  color: #eee;
+  cursor: not-allowed;
+}
