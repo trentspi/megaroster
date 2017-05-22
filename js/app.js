@@ -38,10 +38,10 @@ class Megaroster {
 
   addStudent(student) {
     this.students.unshift(student)
-    
+
     const listItem = this.buildListItem(student)
     this.prependChild(this.studentList, listItem)
-    
+
     if (student.id > this.max) {
       this.max = student.id
     }
@@ -96,10 +96,28 @@ class Megaroster {
 
     if (index > 0) {
       this.studentList.insertBefore(li, li.previousElementSibling)
-      
+
       const previousStudent = this.students[index - 1]
       this.students[index - 1] = student
       this.students[index] = previousStudent
+      this.save()
+    }
+  }
+
+  moveDown(student, ev) {
+    const btn = ev.target
+    const li = btn.closest('.student')
+
+    const index = this.students.findIndex((currentStudent, i) => {
+      return currentStudent.id === student.id
+    })
+
+    if (index < this.students.length - 1) {
+      this.studentList.insertBefore(li, li.nextSibling.nextSibling)
+
+      const nextStudent = this.students[index + 1]
+      this.students[index + 1] = student
+      this.students[index] = nextStudent
       this.save()
     }
   }
